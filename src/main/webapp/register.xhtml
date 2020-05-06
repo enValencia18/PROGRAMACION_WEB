@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
+	<link rel="shortcut icon" type="image/x-icon"
+		href="resources/img/favicon.ico" />
+</h:head>
+<body>
+
+	<h:form id="frm">
+		<p:growl id="men" />
+		<center>
+			<h:graphicImage value="/resources/img/zero two.jpg" height="15%"
+				width="15%"></h:graphicImage>
+			<br />
+		</center>
+		<div align="center">
+
+			<f:facet name="header">Registrar Usuario</f:facet>
+			<h:panelGrid id="pg" columns="2">
+
+				<p:outputLabel for="txtName" value="Nombres" />
+				<p:inputText id="txtName"
+					value="#{registerController.cliente.NCliente}" counter="display"
+					rows="5" cols="30" maxlength="250"
+					counterTemplate="{0} caracteres restantes." autoResize="false"
+					required="true" styleClass="form-control" />
+				<h:message for="txtName" display="text" />
+				<h:column />
+
+				<p:outputLabel for="txtApellido_P" value="Apellido Paterno" />
+				<p:inputText id="txtApellido_P"
+					value="#{registerController.cliente.NApellido_P}" counter="display"
+					rows="5" cols="30" maxlength="250"
+					counterTemplate="{0} caracteres restantes." autoResize="false"
+					required="true" styleClass="form-control" />
+				<h:message for="txtApellido_P" display="text" />
+				<h:column />
+
+				<p:outputLabel for="txtApellido_M" value="Apellido Materno" />
+				<p:inputText id="txtApellido_M"
+					value="#{registerController.cliente.NApellido_M}" counter="display"
+					rows="5" cols="30" maxlength="250"
+					counterTemplate="{0} caracteres restantes." autoResize="false"
+					required="true" styleClass="form-control" />
+				<h:message for="txtApellido_M" display="text" />
+				<h:column />
+
+				<p:outputLabel for="txtTelefono" value="Celular" />
+				<p:inputText id="txtTelefono"
+					value="#{registerController.cliente.telefono_Cliente}"
+					counter="display" rows="5" cols="30" maxlength="250"
+					counterTemplate="{0} caracteres restantes." autoResize="false"
+					required="true" styleClass="form-control" />
+				<h:message for="txtTelefono" display="text" />
+				<h:column />
+
+				<p:outputLabel for="txtCorreo" value="Correo" />
+				<p:inputText id="txtCorreo"
+					value="#{registerController.cliente.NCorreo}" counter="display"
+					rows="5" cols="30" maxlength="250"
+					counterTemplate="{0} caracteres restantes." autoResize="false"
+					required="true" styleClass="form-control" />
+				<h:message for="txtCorreo" display="text" />
+				<h:column />
+
+				<p:outputLabel for="txtDistrito" value="Ditrito" />
+				<p:inputText id="txtDistrito"
+					value="#{registerController.cliente.NDistrito}" counter="display"
+					rows="5" cols="30" maxlength="250"
+					counterTemplate="{0} caracteres restantes." autoResize="false"
+					required="true" styleClass="form-control" />
+				<h:message for="txtDistrito" display="text" />
+				<h:column />
+				
+
+				<h:column />
+				<h:outputText id="display" />
+				<h:column />
+				<h:column />
+
+				<p:outputLabel for="txtUser" value="Usuario" />
+				<p:inputText id="txtUser"
+					value="#{registerController.user.username}" required="true"
+					styleClass="form-control" />
+				<p:message for="txtUser" display="text" />
+				<h:column />
+
+				<p:outputLabel for="txtPassword1" value="Contraseña :" />
+				<p:password id="txtPassword1"
+					value="#{registerController.user.password}" match="txtPassword2"
+					label="Password 1" required="true"
+					validatorMessage="Contraseñas no coinciden"
+					styleClass="form-control" />
+				<p:message for="txtPassword1" display="text" />
+				<h:column />
+
+				<p:outputLabel for="txtPassword2"
+					value="Escriba nuevamente su contraseña:" />
+				<p:password id="txtPassword2"
+					value="#{registerController.user.password}" label="Password 2"
+					required="true" styleClass="form-control" />
+				<h:column />
+				<h:column />
+
+			</h:panelGrid>
+
+			<p:commandButton value="Inicio" action="index?faces-redirect=true"
+				immediate="true" styleClass="btn btn-primary" />
+			<p:commandButton value="Registrar"
+				action="#{registerController.registerUser()}"
+				styleClass="btn btn-primary" />
+		</div>
+	</h:form>
+
+</body>
+</html>
